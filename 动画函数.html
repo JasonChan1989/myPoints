@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+</html>
+
+<script>
+
+    function animate (ele,target,callback) {
+        clearInterval(ele.timer);
+        ele.timer=setInterval(function(){
+            // 设置一个开关 
+            var flag= true;
+            for (var key in target) {
+               var leader =parseInt(getstyle(ele,k))||0;
+               var step = (target[k]-leader)/10;
+               step = step >0?Math.ceil
+            }
+        })
+
+
+
+    }
+
+    function getstyle (ele,attr) {
+        if (window.getComputedStyle) {
+            return window.getComputedStyle(ele,null)[attr];
+        }else{
+            return ele.currentStyle[attr];
+        }
+    }
+
+
+</script>

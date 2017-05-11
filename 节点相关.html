@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+
+</head>
+
+<body>
+
+
+    <ul id='ul1'>
+        <li id="one">这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li id="sel">这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+    </ul>
+    <!--<ul id="ul2">
+        <li>这是第1个li</li>
+        <li>这是第2个li</li>
+        <li>这是第3个li</li>
+        <li id="sel1">这是第4个li</li>
+        <li>这是第5个li</li>
+        <li>这是第6个li</li>
+        <li>这是第7个li</li>
+        <li>这是第8个li</li>
+    </ul>-->
+</body>
+
+</html>
+
+<script>
+    var li = document.getElementById('sel');
+    var ul = document.getElementById('ul1');
+    var one =document.getElementById('one');
+    //获取所有节点
+    // li.previousSibling.style.backgroundColor='red';
+
+    //获取标签节点
+    li.previousElementSibling.style.backgroundColor='red';
+
+
+    //获取所有节点
+  //   li.nextSibling.style.backgroundColor='blue';
+
+
+    // 获取标签节点
+    li.nextElementSibling.style.backgroundColor='blue';
+    
+
+    //获取各种节点   last 同理
+  // ul.firstChild.style.backgroundColor='yellow';
+
+    //获取标签
+    ul.firstElementChild.style.backgroundColor='yellow';
+
+    //总结 代element的牛逼点 方便用
+
+    //节点替换
+    ul.replaceChild(li,one)
+
+</script>

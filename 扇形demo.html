@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+	<script src="fengzhuang.js"></script>
+</head>
+
+<body>
+	<canvas id="canvas1" style="border: 1px solid hotpink"></canvas>
+	<script>
+		var cvs = document.querySelector('canvas');
+
+		var context = cvs.getContext('2d');
+
+		cvs.width = 500;
+		cvs.height = 500;
+
+
+
+		//数据
+
+		var data = [{
+				name: 'xilanhua',
+				total: 2
+			},
+			{
+				name: 'xihongchaodan',
+				total: 5
+			},
+			{
+				name: 'longxia',
+				total: 8
+			},
+			{
+				name: 'pangxie',
+				total: 12
+			},
+			{
+				name: 'shenghao',
+				total: 20
+			},
+			{
+				name: 'zhaxie',
+				total: 15
+				
+			}
+		];
+
+
+		//创建图类对象构造函数
+
+		var sta= new Sta({
+			cvs:cvs,
+			context:context,
+			data:data,
+			type:'bing',
+			startX:250,
+			startY:250,
+			r:160,
+			rPlus:10,
+			lineColor:'hotpink'
+		})
+	</script>
+</body>
+
+</html>

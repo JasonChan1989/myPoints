@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/sky.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/Land.js"></script>
+    <script src="js/Birds.js"></script>
+    <script src="js/timer.js"></script>
+    <script src="js/pipe.js"></script>
+</head>
+
+<body>
+    <canvas style="border:1px solid hotpink"></canvas>
+
+    <script>
+        var cvs = document.querySelector('canvas');
+        var ctx = cvs.getContext('2d');
+
+        // 使用加载器加载图片
+        var imgSrcs = {
+            bird: 'img/bird.png',
+            land: 'img/land.png',
+            pipeUp: 'img/pipeUp.png',
+            pipeDown: 'img/pipeDown.png',
+            sky: 'img/sky.png'
+        }
+
+        tool.loaded(imgSrcs, function (obj) {
+            //当图片都加载完毕之后,执行主函数
+            main(obj)
+
+        })
+
+
+
+
+        function main(obj) {
+
+            //设置画布的宽高
+            cvs.width = obj.sky.width;
+            cvs.height = obj.sky.height;
+
+            //定义一个数组,放入所以将要被绘画的元素
+            var role = [];
+
+            // 定义各一个函数 用来计算需要多少找那个才能循环播放图片
+            function getImagCount(imgwidth) {
+                return Math.ceil(cvs.width / imgwidth) + 1;
+            }
+
+            //计算并且添加背景所需元素到role
+            var skys = getImagCount(obj.sky.width);
+            for (var i = 0; i < skys; i++) {
+                //  console.log(obj.sky);
+                role.push(new Background({
+                    img: obj.sky,
+                    x: obj.sky.width * i,
+                    y: 0,
+                    speed: 4,
+                    context: ctx
+                }));
+            }
+
+
+
+            //渲染小鸟
+            role.push(new Bird({
+                img: obj.bird,
+                x: 30,
+                y: 0,
+                w: obj.bird.width / 3,
+                h: obj.bird.height,
+                speed: 4,
+                context: ctx,
+                speedA: 0.5
+            }))
+
+   
+            var pipes = getImagCount(obj.pipeUp.width+100)
+            console.log(pipes);
+            //渲染管道
+            for (var k = 0; k < pipes; k++) {
+
+                role.push(new Pipe({
+                    imgup: obj.pipeUp,
+                    imgdown: obj.pipeDown,
+                    speed: 4,
+                    speedA: 0.02,
+                    context: ctx,
+                    x: 300 + (obj.pipeUp.width+150) * k,
+                    y: 0
+                }))
+            }
+            //计算并且添加地面所需元素到role
+            var Lands = getImagCount(obj.bird.width);
+            for (var j = 0; j < Lands; j++) {
+                role.push(new Land({
+                    img: obj.land,
+                    x: obj.land.width * j,
+                    y: cvs.height - obj.land.height,
+                    speed: 4,
+                    context: ctx
+                }))
+            }
+                  //渲染文字
+            var timerr = new Timer({
+                context: ctx
+            })
+            role.push(timerr)
+
+
+            //          判断小鸟是否死亡
+
+            function isBirdDead() {
+
+                var bird1 = new Bird();
+                //  console.log(bird1);
+             //   console.log(ctx);
+                if (ctx.isPointInPath(bird1.x + bird1.w / 2, bird1.y + bird1.h / 2)) {
+                    //  console.log(bird1);
+                    return true
+                } else {
+                    // console.log(bird1);
+                    return false;
+
+                }
+
+
+            }
+            //定时器 帧动画
+            setInterval(function () {
+                
+                //判断小鸟是否死亡 如果死亡 暂停动画 定时器继续
+                var c = isBirdDead()
+                
+                if (!c) {
+                    ctx.beginPath();
+                    ctx.clearRect(0, 0, cvs.width, cvs.height);
+
+                    role.forEach(function (value, i) {
+                        value.draw()
+                        value.upData()
+                    })
+                } else {
+                    console.log('game over');
+                }
+
+            }, 1000 / 30)
+
+            //  console.log(role);
+
+        }
+    </script>
+</body>
+
+</html>

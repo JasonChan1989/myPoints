@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js">
+        
+    </script>
+    <style>
+     div{
+         width: 100px;
+         height: 100px;
+         background-color: red;
+     }
+
+    </style>
+</head>
+<body>
+    <div id="demo" data-self="omg"> 
+        
+    </div>
+</body>
+</html>
+<script>
+
+    //h5 中的方法  
+   var div1 =  document.querySelector('#demo');
+   
+//    var value=div1.dataset['self']
+//    console.log(value);
+   
+//    div1.dataset['self']='oooo';
+
+   //dom方法
+
+    // var value =div1.getAttribute("self")
+    // console.log(value); //null
+
+    // div1.setAttribute('text','asdf');
+    // var value = div1.getAttribute('text');
+    //  console.log(value);  // asdf
+    
+    //  必须用setattribute 设置 才能用 getattribute获取 
+
+    // div1.setAttribute('data-self','asdf');
+    // var value = div1.dataset['self']
+    //  console.log(value);  // asdf   
+    // setAttribute 设置 可以用dataset取值
+</script>

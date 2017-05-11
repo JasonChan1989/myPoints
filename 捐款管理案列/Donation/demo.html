@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="css/tcal.css" rel="stylesheet" />
+    <script src="js/tcal.js"></script>
+
+    <!--<script src="js/mydata.js"></script>-->
+    <!--<script src="js/index.js"></script>-->
+    <title></title>
+    <style>
+        * {
+            font-family: "微软雅黑";
+            font-size: 18px;
+            font-weight: 400;
+        }
+
+        div {
+            border: 1px solid #0094ff;
+            width: 932px;
+            margin: 10px auto;
+        }
+
+        input {
+            width: 130px;
+            text-align: center;
+            height: 24px;
+            margin: 1px;
+        }
+
+        input[type="button"] {
+            width: 130px;
+            text-align: center;
+            height: 32px;
+            margin: 1px;
+        }
+
+        select {
+            width: 130px;
+            height: 24px;
+            padding: 0px;
+            margin: 0px;
+        }
+
+        #dataGrid {
+            /*width: 900px;*/
+            margin: 0px auto;
+            border-collapse: collapse;
+        }
+
+        #dataGrid th {
+            background: #0094ff;
+            color: #fff;
+            border-color: #fff;
+            font-size: 25px;
+            border-bottom-color: #000;
+        }
+
+        #dataGrid td {
+            text-align: center;
+            width: 150px;
+            height: 31px;
+            padding: 0px;
+            margin: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1 style="text-align: center; font-size: 30px; font-weight: 900">捐款管理</h1>
+    <div>
+        捐款单位:
+        <select id="s_select">
+            <option value="-1">--请选择--</option>
+        </select>
+        <input type="button" value="查　询" id="querybtn" />
+        <input type="button" value="上一页" id="prepage" />
+        <input type="button" value="下一页" id="nextpage" /> 当前页:
+        <span id="pageindex"></span>/总页数:<span id="count"></span>
+    </div>
+    <div>
+        捐款人:<input class="addinput" id="pname" /> 单　位:
+        <select class="addinput" id="addselect"></select> 金　额:
+        <input class="addinput " id="money" /> 时　间:
+        <input class="tcal addinput" id="date" />
+        <input type="button" id="addBtn" value="新　增" style="width: 80px;" />
+    </div>
+    <table id="dataGrid" border="1">
+        <thead>
+            <tr>
+                <th>序号
+                </th>
+                <th>捐款人
+                </th>
+                <th>捐款单位
+                </th>
+                <th>金额
+                </th>
+                <th>时间
+                </th>
+                <th>操作
+                </th>
+            </tr>
+        </thead>
+        <tbody id="t_body">
+        </tbody>
+    </table>
+</body>
+
+</html>
+    <script src="js/mydata.js"></script>
+    <script src="js/index.js"></script>
+    

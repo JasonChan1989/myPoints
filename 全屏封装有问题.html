@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+
+    <div>
+        <input type="button" value="dianji" id="la">
+        <input type="button" value="dianji" id="la1">
+    </div>
+</body>
+
+</html>
+<script>
+    var box = document.querySelector('div');
+    var btn = document.querySelector('#la');
+    var btn1 = document.querySelector('#la1');
+    btn.onclick = function () {
+        if (box.webkitRequestFullScreen) {
+            box.webkitRequestFullScreen();
+        } else if (box.mozRequestFullScreen) {
+            box.mozRequestFullscreen();
+        } else if (box.msRequestFullscreen) {
+
+        }
+    }
+
+    //全屏??
+    
+    btn1.onclick=function(){
+        if(document.mozCancelFullScreen){
+            document.mozCancelFullScreen();
+        }
+        else if(document.cancelFullScreen){
+            document.cancelFullScreen();
+        }
+        else if(document.webkitCancelFullScreen){
+            document.webkitCancelFullScreen();
+        }
+        else  if(document.msExitFullscreen){
+            document.msExitFullscreen();
+        }
+    }
+</script>

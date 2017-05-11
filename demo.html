@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+<script>
+    var arr = [3, 4, 55, 5, 5, 5, 1, 1, 2, 3, 4, 1, 13, 5, 5, 1, 3, 2, 1, 2, 3, 3, 3, 3, 3, 3, 3, 33, 3, 3, 3, 3, 3, 33,
+        3333, 4
+    ]
+    Array.prototype.myReverse = function () {
+        var temp = {};
+        var newArr=[]
+        for (var i = 0; i < this.length; i++) {           
+            
+                if (!temp[this[i]]) {
+                    temp[this[i]]=1;
+                    newArr.push(this[i]);
+                }
+        }
+        console.log(temp);
+        return newArr;
+    }
+
+   var c= arr.myReverse();
+   console.log(c);
+/**
+
+*/
+</script>

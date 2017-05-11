@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <ul>
+        <li>00001</li>
+        <li>00002</li>
+        <li>00003</li>
+        <li>00004</li>
+        <li>00005</li>
+        <li>00006</li>
+        <li>00007</li>
+        <li>00008</li>
+    </ul>
+</body>
+
+</html>
+
+<script>
+    // (function (window) {
+
+    //     //简介的构造函数 用来返回选择出来的dom对象
+    //     function F(selector) {
+    //         return this.domList(selector);
+    //     }
+
+    //     F.prototype = {
+    //         constructor: F,
+    //         domList: function (selector) {
+    //             this.element = document.querySelectorAll(selector);
+    //             return this
+    //         }
+    //     }
+
+    //     var $$ = function (selector) {
+    //         return new F(selector)
+    //     }
+
+
+    //     window.$$ = Up = $$;
+
+    // }(window))
+
+
+
+    var F = function (selector, context) {
+        return this.getNodeList(selector, context);
+    };
+    F.prototype.getNodeList = function (selector, context) {
+        context = context || document;
+        this.element = context.querySelectorAll(selector);
+        return this.element;
+    };
+
+    var $ = function (selector, context) {
+        return new F(selector, context);
+    };
+
+   // console.log($('li'));
+   console.log(HTMLElement);
+</script>

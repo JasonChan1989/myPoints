@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    
+    <a href="http://www.baidu.com">baidu</a>
+   
+
+
+</body>
+</html>
+<script>
+
+    // 阻止事件冒泡
+    function stopPropagation (e) {
+            if (e&& e.stopProgation) {
+                e.stopProgation()
+            }else{
+                window.event.cancelBubble==true;
+            }
+    }
+
+
+    //阻止默认事件
+    function stopDefault (e) {
+        if (e&& e.preventDefault) {
+            e.preventDefault()
+        }else{
+            window.event.returnValue=false;
+        }
+
+        //return false 是为了处理一些上述两种不能起效果的情景的补充
+        //比如各种库当中 jq啥的 
+        // 在事件逻辑中的最尾 调用这个方法 会组织默认和冒泡 但不会打断前面的逻辑
+        return false;
+    }
+
+
+    var linkk= document.querySelector('a');
+
+    linkk.onclick=function(e){
+        stopDefault(e)
+    }
+
+</script>

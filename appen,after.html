@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="jquery.js"></script>
+    <style>
+    #la{
+        background-color: yellow;
+    }
+
+        
+    </style>
+</head>
+<body>
+     <ul>
+         <li>这是第0个li</li>
+         <li>这是第1个li</li>
+         <li>这是第2个li</li>
+         <li>这是第3个li</li>
+         <li>这是第4个li</li>
+         <li>这是第5个li</li>
+         <li>这是第6个li</li>
+         <li>这是第7个li</li> 
+         
+     </ul>
+</body>
+</html>
+<script>
+  //  append() & prepend()是在元素内插入内容（该内容变成该元素的子元素或节点），after() & before()是在元素的外面插入内容（其内容变成元素的兄弟节点）。
+
+    var newli = '33333'
+   
+    $('ul>li').eq(2).css({backgroundColor: 'red'}).append(newli)
+    $('ul>li').eq(3).css({backgroundColor: 'red'}).prepend(newli)
+    $('ul>li').eq(5).css({backgroundColor: 'red'}).before(newli)
+    // $('ul>li').eq(5).css({backgroundColor: 'red'}).after(newli)
+
+    //设置文档背景颜色
+    //document.bgColor="blue"
+
+
+</script>

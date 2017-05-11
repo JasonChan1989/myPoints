@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    <input type="file" id="myFile">
+    <img src="#">
+    <input type="button" value="btn" id="la" >
+</body>
+
+</html>
+
+<script>
+    function readerData() {
+        var file = document.querySelector("#myFile");
+        var img = document.querySelector("img");
+        var reader = new FileReader();
+    
+        reader.readAsDataURL(file.files[0]);
+        reader.onload = function (e) {
+
+            var result = reader.result;
+
+            img.src = result;
+        }
+
+    }
+    var btn= document.querySelector('#la');
+    btn.onclick=function(){
+        readerData()
+    }
+   // readerData()
+</script>
